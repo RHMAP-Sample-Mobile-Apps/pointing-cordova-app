@@ -1,16 +1,16 @@
 <ion-header>
 	<ion-navbar>
-		<button menuToggle *ngIf="!selectedItem">
+		<button menuToggle *ngIf="!session">
       <ion-icon name="menu"></ion-icon>
     </button>
-		<ion-title>{{selectedItem.Name}}</ion-title>
+		<ion-title>{{session.Name}}</ion-title>
 	</ion-navbar>
 </ion-header>
 
 <ion-content>
-	<div *ngIf="selectedItem" class="selection">
+	<div *ngIf="session" class="selection">
 		<ion-list>
-			<ion-item *ngFor="let user of selectedItem.Users">
+			<ion-item *ngFor="let user of session.Users">
 				<ion-label>{{user.Name}}</ion-label>
 				<ion-select [(ngModel)]="vote">
 					<ion-option value="1">1</ion-option>

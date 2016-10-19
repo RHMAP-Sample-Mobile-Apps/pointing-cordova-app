@@ -8,17 +8,17 @@ import { Session, User } from "../../model/domain";
   templateUrl: 'item-details.html'
 })
 export class ItemDetailsPage implements OnInit {
-  selectedItem: Session;
+  private session: Session;
 
   ngOnInit(): void {
     var that = this;
     this.pokerService.addsessionUpdatedHandler(function(user: User) {
-      that.selectedItem.Users.push(user);
+      that.session.Users.push(user);
     });
   }
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private pokerService: PokerService) {
     // If we navigated to this page, we will have an item available as a nav param
-    this.selectedItem = navParams.get('item');
+    this.session = navParams.get('session');
   }
 }

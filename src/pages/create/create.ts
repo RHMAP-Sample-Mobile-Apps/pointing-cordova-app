@@ -24,7 +24,7 @@ export class CreatePage {
       let that = this;
       this.pokerService.createSession(this.session).then(function(session: Session) {
         that.navCtrl.push(ItemDetailsPage, {
-          item: that.session
+          session: that.session
         });
       });
     }

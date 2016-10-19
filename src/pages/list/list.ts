@@ -31,7 +31,7 @@ export class ListPage implements OnInit {
     let that = this;
     this.pokerService.joinSession(item.Name, this.user.Name).then(function(session: Session) {
       that.navCtrl.push(ItemDetailsPage, {
-        item: session
+        session: session
       });
     });
   }
