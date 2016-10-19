@@ -1,5 +1,4 @@
-import { Component } from '@angular/core';
-import { OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { ItemDetailsPage } from '../item-details/item-details';
 import { PokerService } from '../../service/poker';
@@ -12,10 +11,16 @@ import { Observable } from 'rxjs/Observable';
 export class ListPage implements OnInit {
   selectedItem: any;
   icons: string[];
-  items: Observable<Session[]>;
+  items: Session[];
 
   ngOnInit(): void {
-    this.items = this.pokerService.getSessions();
+    var that = this;
+    this.pokerService.getSessions().subscribe(function(items) {
+      that.items = items;
+    });
+    this.pokerService.addSessionHandler(function(session: Session) {
+      that.items.push(session);
+    });
   }
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private pokerService: PokerService) {
@@ -23,9 +28,12 @@ export class ListPage implements OnInit {
     this.selectedItem = navParams.get('item');
   }
 
-  itemTapped(event, item) {
-    this.navCtrl.push(ItemDetailsPage, {
-      item: item
+  itemTapped(event, item: Session) {
+    let that = this;
+    this.pokerService.joinSession(item.Name, "Erik").then(function(session: Session) {
+      that.navCtrl.push(ItemDetailsPage, {
+        item: session
+      });
     });
   }
 }
