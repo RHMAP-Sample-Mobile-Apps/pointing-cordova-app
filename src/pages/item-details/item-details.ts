@@ -9,16 +9,26 @@ import { Session, User } from "../../model/domain";
 })
 export class ItemDetailsPage implements OnInit {
   private session: Session;
+  private user: User;
 
   ngOnInit(): void {
     var that = this;
     this.pokerService.addsessionUpdatedHandler(function(user: User) {
-      that.session.Users.push(user);
+      let found = that.session.Users.find(u => u.Name == user.Name);
+      if (found) {
+        found.Vote = user.Vote;
+      } else {
+        that.session.Users.push(user);
+      }
     });
   }
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private pokerService: PokerService) {
-    // If we navigated to this page, we will have an item available as a nav param
-    this.session = navParams.get('session');
+    this.session = navParams.get("session");
+    this.user = navParams.get("user");
+  }
+
+  castVote() {
+    this.pokerService.castVote(this.session.Name, this.user);
   }
 }

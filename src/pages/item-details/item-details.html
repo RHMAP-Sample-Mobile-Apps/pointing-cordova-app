@@ -10,13 +10,14 @@
 <ion-content>
 	<div *ngIf="session" class="selection">
 		<ion-list>
-			<ion-item *ngFor="let user of session.Users">
-				<ion-label>{{user.Name}}</ion-label>
-				<ion-select [(ngModel)]="vote">
+			<ion-item *ngFor="let u of session.Users">
+				<ion-label>{{u.Name}}</ion-label>
+				<ion-select [(ngModel)]="user.Vote" (ngModelChange)="castVote($event)" *ngIf="u.Name == user.Name">
 					<ion-option value="1">1</ion-option>
 					<ion-option value="3">3</ion-option>
 					<ion-option value="5">5</ion-option>
 				</ion-select>
+				<ion-label *ngIf="u.Name != user.Name" class="pull-right">{{u.Vote}}</ion-label>
 			</ion-item>
 		</ion-list>
 	</div>

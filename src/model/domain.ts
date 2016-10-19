@@ -7,5 +7,6 @@ export class Session {
 }
 
 export class User {
+    Vote: number;
     constructor(readonly Name) {}
 }

@@ -43,6 +43,13 @@ export class PokerService {
       .catch(this.handleError);
   }
 
+  castVote(sessionName: string, user: User) {
+    this.http.post(this.endpoint + "vote", { session: sessionName, user: user})
+      .toPromise()
+      .then(this.extractData)
+      .catch(this.handleError);
+  }
+
   addSessionHandler(callback: (session: Session) => void) {
     this.socket.addEventListener("sessions", function (data) {
       callback(JSON.parse(data));
