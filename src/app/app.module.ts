@@ -3,6 +3,7 @@ import { IonicApp, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { ItemDetailsPage } from '../pages/item-details/item-details';
 import { ListPage } from '../pages/list/list';
+import { SelectPage } from '../pages/select/select';
 import { LoginPage } from '../pages/login/login';
 import { PokerService } from '../service/poker';
 
@@ -11,6 +12,7 @@ import { PokerService } from '../service/poker';
     MyApp,
     ItemDetailsPage,
     ListPage,
+    SelectPage,
     LoginPage
   ],
   imports: [
@@ -21,6 +23,7 @@ import { PokerService } from '../service/poker';
     MyApp,
     ItemDetailsPage,
     ListPage,
+    SelectPage,
     LoginPage
   ],
   providers: [PokerService]

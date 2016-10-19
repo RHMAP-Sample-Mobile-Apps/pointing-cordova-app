@@ -1,0 +1,25 @@
+<ion-header>
+	<ion-navbar>
+		<button menuToggle *ngIf="!selectedItem">
+            <ion-icon name="menu"></ion-icon>
+        </button>
+		<ion-title>Select</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content>
+	<ion-list>
+    <div class="icon">
+			<button (click)="onCreate()">
+      	<img src="assets/new_session.png">
+			</button>
+			<p>Create new Session</p>
+    </div>
+    <div class="icon">
+			<button (click)="onJoin()">
+      	<img src="assets/join_session.png">
+			</button>
+			<p>Join a Session</p>
+    </div>
+	</ion-list>
+</ion-content>

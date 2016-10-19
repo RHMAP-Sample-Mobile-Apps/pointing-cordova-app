@@ -5,6 +5,8 @@ import { Platform, MenuController, Nav } from 'ionic-angular';
 import { StatusBar } from 'ionic-native';
 
 import { LoginPage } from '../pages/login/login';
+import { ListPage } from '../pages/list/list';
+import { SelectPage } from '../pages/select/select';
 
 
 @Component({
@@ -24,7 +26,8 @@ export class MyApp {
 
     // set our app's pages
     this.pages = [
-      { title: 'Login', component: LoginPage }
+      { title: 'Sessions', component: ListPage },
+      { title: 'Select', component: SelectPage }
     ];
   }
 

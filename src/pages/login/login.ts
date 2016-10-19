@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { ListPage } from '../list/list';
+import { SelectPage } from '../select/select';
 import { User } from '../../model/domain';
 
 
@@ -18,7 +18,7 @@ export class LoginPage {
     this.submitted = true;
 
     if (form.valid) {
-      this.navCtrl.push(ListPage, {
+      this.navCtrl.push(SelectPage, {
         user: new User(this.login.username)
       });
     }
