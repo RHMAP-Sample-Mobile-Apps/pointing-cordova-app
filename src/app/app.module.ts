@@ -3,13 +3,15 @@ import { IonicApp, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { ItemDetailsPage } from '../pages/item-details/item-details';
 import { ListPage } from '../pages/list/list';
+import { LoginPage } from '../pages/login/login';
 import { PokerService } from '../service/poker';
 
 @NgModule({
   declarations: [
     MyApp,
     ItemDetailsPage,
-    ListPage
+    ListPage,
+    LoginPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -18,7 +20,8 @@ import { PokerService } from '../service/poker';
   entryComponents: [
     MyApp,
     ItemDetailsPage,
-    ListPage
+    ListPage,
+    LoginPage
   ],
   providers: [PokerService]
 })

@@ -4,7 +4,7 @@ import { Platform, MenuController, Nav } from 'ionic-angular';
 
 import { StatusBar } from 'ionic-native';
 
-import { ListPage } from '../pages/list/list';
+import { LoginPage } from '../pages/login/login';
 
 
 @Component({
@@ -13,7 +13,7 @@ import { ListPage } from '../pages/list/list';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = ListPage;
+  rootPage: any = LoginPage;
   pages: Array<{title: string, component: any}>;
 
   constructor(
@@ -24,7 +24,7 @@ export class MyApp {
 
     // set our app's pages
     this.pages = [
-      { title: 'Sessions', component: ListPage }
+      { title: 'Login', component: LoginPage }
     ];
   }
 
