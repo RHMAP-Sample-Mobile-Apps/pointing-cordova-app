@@ -7,6 +7,7 @@ import { StatusBar } from 'ionic-native';
 import { LoginPage } from '../pages/login/login';
 import { ListPage } from '../pages/list/list';
 import { SelectPage } from '../pages/select/select';
+import { CreatePage } from '../pages/create/create';
 
 
 @Component({
@@ -26,6 +27,7 @@ export class MyApp {
 
     // set our app's pages
     this.pages = [
+      { title: 'Create', component: CreatePage },
       { title: 'Sessions', component: ListPage },
       { title: 'Select', component: SelectPage }
     ];

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { ListPage } from '../list/list';
+import { CreatePage } from '../create/create';
 import { User } from '../../model/domain';
 
 
@@ -15,14 +16,15 @@ export class SelectPage {
   }
 
   onJoin() {
-    let that = this;
     this.navCtrl.push(ListPage, {
-      user: that.user
+      user: this.user
     });
   }
 
   onCreate() {
-    let that = this;
+    this.navCtrl.push(CreatePage, {
+      user: this.user
+    });
   }
 
 }

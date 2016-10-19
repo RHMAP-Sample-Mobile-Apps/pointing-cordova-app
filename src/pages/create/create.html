@@ -1,0 +1,27 @@
+<ion-header>
+	<ion-navbar>
+		<button menuToggle *ngIf="!selectedItem">
+            <ion-icon name="menu"></ion-icon>
+        </button>
+		<ion-title>Select</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content>
+	<form #createForm="ngForm" novalidate>
+		<ion-item>
+			<ion-label floating color="primary">Session name</ion-label>
+			<ion-input [(ngModel)]="session.Name" name="name" type="text" #Name="ngModel" spellcheck="false" autocapitalize="off"
+				required>
+			</ion-input>
+		</ion-item>
+		<p [hidden]="Name.valid || submitted == false" color="danger" padding-left>
+			Session name is required
+		</p>
+		<ion-row responsive-sm>
+			<ion-col>
+				<button ion-button (click)="onCreate(createForm)" type="submit" color="primary" block>Create Session</button>
+			</ion-col>
+		</ion-row>
+	</form>
+</ion-content>

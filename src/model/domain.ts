@@ -1,6 +1,6 @@
 export class Session {
     CreatedBy: User;
-    Users: User[];
+    Users: User[] = [];
 
     constructor(readonly Name: string) {
     }

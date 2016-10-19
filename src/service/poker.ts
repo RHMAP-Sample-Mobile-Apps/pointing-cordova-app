@@ -32,6 +32,17 @@ export class PokerService {
     return session;
   }
 
+  createSession(session: Session): Promise<Session> {
+    let that = this;
+    return this.http.post(this.endpoint, session)
+      .toPromise()
+      .then(this.extractData)
+      .then(function() {
+        that.joinSession(session.Name, session.CreatedBy.Name)
+      })
+      .catch(this.handleError);
+  }
+
   addSessionHandler(callback: (session: Session) => void) {
     this.socket.addEventListener("sessions", function (data) {
       callback(JSON.parse(data));
