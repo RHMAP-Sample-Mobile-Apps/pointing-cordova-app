@@ -10,17 +10,20 @@ import { Session, User } from "../../model/domain";
 export class ItemDetailsPage implements OnInit {
   private session: Session;
   private user: User;
+  private showVotes: boolean = false;
 
   ngOnInit(): void {
     var that = this;
     this.pokerService.addsessionUpdatedHandler(function(user: User) {
-      let found = that.session.Users.find(u => u.Name == user.Name);
-      if (found) {
-        found.Vote = user.Vote;
-      } else {
-        that.session.Users.push(user);
-      }
+      that.session.Users.push(user);
     });
+    this.pokerService.addVoteUpdatedHandler(function(user: User) {
+      let found = that.session.Users.find(u => u.Name == user.Name);
+      found.Vote = user.Vote;
+    });
+    this.pokerService.addFinishHandler(function(command: string) {
+      that.showVotes = "showVotes" === command;
+    })
   }
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private pokerService: PokerService) {
@@ -30,5 +33,9 @@ export class ItemDetailsPage implements OnInit {
 
   castVote() {
     this.pokerService.castVote(this.session.Name, this.user);
+  }
+
+  showClicked() {
+    this.pokerService.showVotes(this.session.Name);
   }
 }

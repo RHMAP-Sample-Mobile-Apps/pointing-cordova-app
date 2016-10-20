@@ -50,6 +50,10 @@ export class PokerService {
       .catch(this.handleError);
   }
 
+  showVotes(sessionName: string) {
+    this.socket.emit("showVotes", sessionName);
+  }
+
   addSessionHandler(callback: (session: Session) => void) {
     this.socket.addEventListener("sessions", function (data) {
       callback(JSON.parse(data));
@@ -59,6 +63,18 @@ export class PokerService {
   addsessionUpdatedHandler(callback: (user: User) => void) {
     this.socket.addEventListener("sessionUpdated", function (data) {
       callback(JSON.parse(data));
+    });
+  }
+
+  addVoteUpdatedHandler(callback: (user: User) => void) {
+    this.socket.addEventListener("voteUpdated", function (data) {
+      callback(JSON.parse(data));
+    });
+  }
+
+  addFinishHandler(callback: (command: string) => void) {
+    this.socket.addEventListener("finish", function (data) {
+      callback(data);
     });
   }
 
