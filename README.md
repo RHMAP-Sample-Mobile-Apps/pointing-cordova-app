@@ -3,7 +3,6 @@
 Author: Erik Jan de Wit   
 Level: Intermediate   
 Technologies: Javascript, Cordova, socket.io.
-
 Summary: A demonstration of how to use socket.io, fh-js-sdk.   
 Community Project: [Feed Henry](http://feedhenry.org)    
 Source: https://github.com/RHMAP-Sample-Mobile-Apps/pointing-cordova-app   
