@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { PokerService } from '../../service/poker';
 import { ItemDetailsPage } from '../item-details/item-details';
-import { Session, User } from '../../model/domain';
+import { Session } from '../../model/domain';
 
 
 @Component({
