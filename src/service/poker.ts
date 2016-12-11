@@ -10,7 +10,7 @@ import io from 'socket.io-client';
 export class PokerService {
   private url = 'http://localhost:8001/';
   private endpoint = this.url + "poker/";
-  private socket;
+  private socket: any;
 
   constructor(private http: Http) {
     this.socket = io(this.url);

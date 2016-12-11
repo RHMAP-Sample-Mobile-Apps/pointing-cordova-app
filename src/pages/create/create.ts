@@ -9,9 +9,8 @@ import { Session, User } from '../../model/domain';
   templateUrl: 'create.html'
 })
 export class CreatePage {
-  private session: Session = new Session("");
-  private submitted = false;
-
+  public session: Session = new Session("");
+  public submitted = false;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private pokerService: PokerService) {
     this.session.CreatedBy = navParams.get('user');
