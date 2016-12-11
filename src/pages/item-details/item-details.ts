@@ -8,9 +8,9 @@ import { Session, User } from "../../model/domain";
   templateUrl: 'item-details.html'
 })
 export class ItemDetailsPage implements OnInit {
-  private session: Session;
-  private user: User;
-  private showVotes: boolean = false;
+  public session: Session;
+  public user: User;
+  public showVotes: boolean = false;
 
   ngOnInit(): void {
     var that = this;

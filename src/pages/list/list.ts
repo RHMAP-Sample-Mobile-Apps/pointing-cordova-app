@@ -3,7 +3,6 @@ import { NavController, NavParams } from 'ionic-angular';
 import { ItemDetailsPage } from '../item-details/item-details';
 import { PokerService } from '../../service/poker';
 import { Session, User } from "../../model/domain";
-import { Observable } from 'rxjs/Observable';
 
 @Component({
   templateUrl: 'list.html'

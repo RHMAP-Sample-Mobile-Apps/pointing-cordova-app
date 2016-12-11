@@ -2,16 +2,15 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { PokerService } from '../../service/poker';
 import { ItemDetailsPage } from '../item-details/item-details';
-import { Session, User } from '../../model/domain';
+import { Session } from '../../model/domain';
 
 
 @Component({
   templateUrl: 'create.html'
 })
 export class CreatePage {
-  private session: Session = new Session("");
-  private submitted = false;
-
+  public session: Session = new Session("");
+  public submitted = false;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private pokerService: PokerService) {
     this.session.CreatedBy = navParams.get('user');
