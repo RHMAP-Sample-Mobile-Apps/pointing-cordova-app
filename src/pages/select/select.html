@@ -9,17 +9,23 @@
 
 <ion-content>
 	<ion-list>
-    <div class="icon">
+		<br/>
+		<div class="center">
+			<ion-input [(ngModel)]="username" placeholder="what's your name?" name="username" type="text"  spellcheck="false" autocapitalize="off"
+					required>
+			</ion-input>
+		</div>
+		<div class="icon">
 			<button (click)="onCreate()">
-      	<img src="assets/new_session.png">
+      			<img src="assets/new_session.png">
 			</button>
-			<p>Create new Session</p>
-    </div>
-    <div class="icon">
+			<p>Create a new Session</p>
+		</div>
+		<div class="icon">
 			<button (click)="onJoin()">
-      	<img src="assets/join_session.png">
+      			<img src="assets/join_session.png">
 			</button>
 			<p>Join a Session</p>
-    </div>
+		</div>
 	</ion-list>
 </ion-content>
