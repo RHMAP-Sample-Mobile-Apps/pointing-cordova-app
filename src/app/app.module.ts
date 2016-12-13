@@ -5,7 +5,6 @@ import { CreatePage } from '../pages/create/create';
 import { ItemDetailsPage } from '../pages/item-details/item-details';
 import { ListPage } from '../pages/list/list';
 import { SelectPage } from '../pages/select/select';
-import { LoginPage } from '../pages/login/login';
 import { PokerService } from '../service/poker';
 
 @NgModule({
@@ -14,8 +13,7 @@ import { PokerService } from '../service/poker';
     CreatePage,
     ItemDetailsPage,
     ListPage,
-    SelectPage,
-    LoginPage
+    SelectPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -26,8 +24,7 @@ import { PokerService } from '../service/poker';
     CreatePage,
     ItemDetailsPage,
     ListPage,
-    SelectPage,
-    LoginPage
+    SelectPage
   ],
   providers: [PokerService]
 })
